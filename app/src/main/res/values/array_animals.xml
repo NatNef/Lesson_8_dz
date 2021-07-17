@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="animals">
+
+        <item>Кошка</item>
+        <item>Собака</item>
+        <item>Свинка</item>
+        <item>Тигр</item>
+        <item>Енот</item>
+
+    </string-array>
+
+<!--    <integer-array name="coat_of_arms_imgs">-->
+<!--        <item>@drawable/msc</item>&lt;!&ndash; герб Москвы &ndash;&gt;-->
+<!--        <item>@drawable/spb</item>&lt;!&ndash; герб Санкт-Петербурга &ndash;&gt;-->
+<!--        <item>@drawable/ebrg</item>&lt;!&ndash; герб Екатеринбурга &ndash;&gt;-->
+<!--        <item>@drawable/nsk</item>&lt;!&ndash; герб Новосибирска &ndash;&gt;-->
+<!--        <item>@drawable/sam</item>&lt;!&ndash; герб Самары &ndash;&gt;-->
+<!--    </integer-array>-->
+</resources>
