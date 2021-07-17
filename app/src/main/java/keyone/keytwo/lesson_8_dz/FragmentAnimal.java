@@ -1,5 +1,6 @@
 package keyone.keytwo.lesson_8_dz;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -22,7 +23,7 @@ public class FragmentAnimal extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_animals, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_view_lines);
+        RecyclerView recyclerView = view.findViewById(R.id.recycleView);
         String[] data = getResources().getStringArray(R.array.titles);
         initRecyclerView(recyclerView, data);
         return view;
@@ -41,6 +42,8 @@ public class FragmentAnimal extends Fragment {
         AnimalsNetworkAdapter adapter = new AnimalsNetworkAdapter(data);
         recyclerView.setAdapter(adapter);
     }
+
+
 }
 
 

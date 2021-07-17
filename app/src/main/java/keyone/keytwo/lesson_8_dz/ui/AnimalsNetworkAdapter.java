@@ -1,5 +1,7 @@
 package keyone.keytwo.lesson_8_dz.ui;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAdapter.ViewHolder> {
 
     private String[] animals;
@@ -12,9 +14,8 @@ public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAd
 
     // Создать новый элемент пользовательского интерфейса
     // Запускается менеджером
-    @NonNull
     @Override
-    public AnimalsNetworkAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public AnimalsNetworkAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         // Создаём новый элемент пользовательского интерфейса
         // Через Inflater
         View v = LayoutInflater.from(viewGroup.getContext())
@@ -26,7 +27,7 @@ public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAd
     // Заменить данные в пользовательском интерфейсе
     // Вызывается менеджером
     @Override
-    public void onBindViewHolder(@NonNull AnimalsNetworkAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(ViewHolder viewHolder, int i) {
         // Получить элемент из источника данных (БД, интернет...)
         // Вынести на экран, используя ViewHolder
         viewHolder.getTextView().setText(animals[i]);
