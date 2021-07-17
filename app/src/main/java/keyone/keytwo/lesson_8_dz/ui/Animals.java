@@ -3,28 +3,33 @@ package keyone.keytwo.lesson_8_dz.ui;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+
 public class Animals implements Parcelable {
 
-        private int imageIndex;
-        private String animalName;
+    private int imageIndex;
+    private String animalName;
 
-        public Animals(int imageIndex, String animalName){
-            this.imageIndex = imageIndex;
-            this.animalName = animalName;
-        }
+    public Animals(int imageIndex, String animalName) {
+        this.imageIndex = imageIndex;
+        this.animalName = animalName;
+    }
 
-        protected Animals(Parcelable in) {
-            imageIndex = in.readInt();
-            animalName = in.readString();
-        }
+    protected Animals(Parcelable in) {
+        imageIndex = in.readInt();
+        animalName = in.readString();
+    }
 
-        @Override
-        public void writeToParcel(Parcelable dest, int flags) {
-            dest.writeInt(getImageIndex());
-            dest.writeString(getanimalName());
-        }
+    @Override
+    public void writeToParcel(Parcelable dest, int photo) {
+        dest.writeInt(getImageIndex());
+        dest.writeString(getanimalName());
+    }
 
-        @Override
+    private void getanimalName() {
+    }
+
+
+    @Override
         public int describeContents() {
             return 0;
         }

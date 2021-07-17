@@ -1,8 +1,13 @@
 package keyone.keytwo.lesson_8_dz.ui;
 
 import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import keyone.keytwo.lesson_8_dz.R;
 
 public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAdapter.ViewHolder> {
 
@@ -47,7 +52,7 @@ public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAd
 
         private TextView textView;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
             textView = (TextView) itemView;
         }
