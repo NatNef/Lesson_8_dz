@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import keyone.keytwo.lesson_8_dz.ui.AnimalsNetworkAdapter;
+
 
 public class FragmentAnimal extends Fragment {
 
