@@ -1,5 +1,7 @@
 package keyone.keytwo.lesson_8_dz.ui;
 
+import android.view.LayoutInflater;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAdapter.ViewHolder> {

@@ -1,6 +1,9 @@
 package keyone.keytwo.lesson_8_dz.ui;
 
-public class Animals Parcelable {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Animals extends Parcelable {
 
         private int imageIndex;
         private String animalName;
@@ -10,13 +13,13 @@ public class Animals Parcelable {
             this.animalName = animalName;
         }
 
-        protected Animals(Parcel in) {
+        protected Animals(Parcelable in) {
             imageIndex = in.readInt();
             animalName = in.readString();
         }
 
         @Override
-        public void writeToParcel(Parcel dest, int flags) {
+        public void writeToParcel(Parcelable dest, int flags) {
             dest.writeInt(getImageIndex());
             dest.writeString(getanimalName());
         }
@@ -28,8 +31,13 @@ public class Animals Parcelable {
 
         public static final Creator<Animals> CREATOR = new Creator<Animals>() {
             @Override
-            public Animals createFromParcel(Parcel in) {
+            public Animals createFromParcel(Parcelable in) {
                 return new Animals(in);
+            }
+
+            @Override
+            public Animals createFromParcel(Parcel source) {
+                return null;
             }
 
             @Override
