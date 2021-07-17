@@ -3,7 +3,7 @@ package keyone.keytwo.lesson_8_dz.ui;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Animals extends Parcelable {
+public class Animals implements Parcelable {
 
         private int imageIndex;
         private String animalName;

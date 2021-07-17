@@ -59,5 +59,3 @@ public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAd
 }
 
 
-
-}
