@@ -10,4 +10,17 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <string name="app_animals">Animals</string>
+    <string name="title1">Кот</string>
+    <string name="title2">Собака</string>
+    <string name="title3">Енот</string>
+    <string name="title4">Свинка</string>
+    <string name="title5">Тигр</string>
+    <string name="description1">Кот Вася</string>
+    <string name="description2">Собака Шар</string>
+    <string name="description3">Енот Петя</string>
+    <string name="description4">Свинка Анька</string>
+    <string name="description5">Тигр Гоша</string>
+
 </resources>
