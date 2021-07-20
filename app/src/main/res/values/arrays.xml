@@ -18,11 +18,11 @@
     </string-array>
 
     <array name="pictures">
-        <item>@drawable/nature1</item>
-        <item>@drawable/nature2</item>
-        <item>@drawable/nature3</item>
-        <item>@drawable/nature4</item>
-        <item>@drawable/nature5</item>
+        <item>@drawable/cat</item>
+        <item>@drawable/dog</item>
+        <item>@drawable/enot</item>
+        <item>@drawable/pig</item>
+        <item>@drawable/tiger</item>
 
     </array>
 

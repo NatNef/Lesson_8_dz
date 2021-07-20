@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+
 import keyone.keytwo.lesson_8_dz.ui.AnimalsNetworkAdapter;
 import keyone.keytwo.lesson_8_dz.ui.Data.CardsSource;
 import keyone.keytwo.lesson_8_dz.ui.Data.CardsSourceImpl;
@@ -46,7 +47,7 @@ public class FragmentAnimal extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         // Установим адаптер
-        AnimalsNetworkAdapter adapter = new AnimalsNetworkAdapter(data);
+        final AnimalsNetworkAdapter adapter = new AnimalsNetworkAdapter(data);
         recyclerView.setAdapter(adapter);
     }
 // Установим слушателя
@@ -54,9 +55,7 @@ public class FragmentAnimal extends Fragment {
 
     {
         @Override
-        public void onItemClick; (View) Object; Object view = null;
-        view;
-        int position = 0;{
+        public void onItemClick; (View) view; int position = 0; {
         Toast.makeText(getContext(), String.format("Позиция - %d", position),
                 Toast.LENGTH_SHORT).show();
     }
