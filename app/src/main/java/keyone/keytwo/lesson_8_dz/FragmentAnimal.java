@@ -10,8 +10,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import keyone.keytwo.lesson_8_dz.ui.AnimalsNetworkAdapter;
+import keyone.keytwo.lesson_8_dz.ui.Data.CardsSource;
+import keyone.keytwo.lesson_8_dz.ui.Data.CardsSourceImpl;
 
 
 public class FragmentAnimal extends Fragment {
@@ -26,12 +29,14 @@ public class FragmentAnimal extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_animals, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.recycleView);
-        String[] data = getResources().getStringArray(R.array.titles);
+//        String[] data = getResources().getStringArray(R.array.titles);
+        // Получим источник данных для списка
+        CardsSource data = new CardsSourceImpl(getResources()).init();
         initRecyclerView(recyclerView, data);
         return view;
     }
 
-    private void initRecyclerView(RecyclerView recyclerView, String[] data){
+    private void initRecyclerView(RecyclerView recyclerView, CardsSource data) {
 
         // Эта установка служит для повышения производительности системы
         recyclerView.setHasFixedSize(true);
@@ -44,7 +49,18 @@ public class FragmentAnimal extends Fragment {
         AnimalsNetworkAdapter adapter = new AnimalsNetworkAdapter(data);
         recyclerView.setAdapter(adapter);
     }
+// Установим слушателя
+       adapter.SetOnItemClickListener(new AnimalsNetworkAdapter.OnItemClickListener()
 
+    {
+        @Override
+        public void onItemClick; (View) Object; Object view = null;
+        view;
+        int position = 0;{
+        Toast.makeText(getContext(), String.format("Позиция - %d", position),
+                Toast.LENGTH_SHORT).show();
+    }
+    }
 
 }
 

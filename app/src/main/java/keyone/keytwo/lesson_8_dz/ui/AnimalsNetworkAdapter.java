@@ -4,25 +4,25 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.CheckBox;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.work.Data;
 
-import keyone.keytwo.lesson_8_dz.Data.CardData;
-import keyone.keytwo.lesson_8_dz.Data.CardsSource;
 
 import keyone.keytwo.lesson_8_dz.R;
+import keyone.keytwo.lesson_8_dz.ui.Data.CardData;
+import keyone.keytwo.lesson_8_dz.ui.Data.CardsSource;
 
 public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAdapter.ViewHolder> {
 
 
     private final static String TAG = "AnimalsNetworkAdapter";
     private String[] dataSource;
-    private OnItemClickListener itemClickListener;  // Слушатель будет устанавливаться извне
+    private AdapterView.OnItemClickListener itemClickListener;  // Слушатель будет устанавливаться извне
 
     private String[] animals;
 
@@ -31,7 +31,7 @@ public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAd
 //    public AnimalsNetworkAdapter(String[] animals) {
 //        this.animals = animals;
 //    }
-    public AnimalsNetworkAdapter(String[] dataSource)
+    public AnimalsNetworkAdapter(CardsSource dataSource)
     {this.dataSource = dataSource;
     }
 
@@ -70,9 +70,10 @@ public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAd
 
     // Этот класс хранит связь между данными и элементами View
     // Сложные данные могут потребовать несколько View на один пункт списка
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView textView;
+        private OnItemClickListener itemClickListener;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -118,7 +119,7 @@ public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAd
                 @Override
                 public void onClick(View v) {
                     if (itemClickListener != null) {
-                        itemClickListener.onItemClick(v, getAdapterPosition());
+                        itemClickListener.onItemClick(v,getAdapterPosition());
                     }
                 }
             });
