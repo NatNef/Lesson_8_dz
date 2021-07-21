@@ -3,10 +3,12 @@ package keyone.keytwo.lesson_8_dz;
 import android.app.Activity;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
 
 
 import androidx.annotation.NonNull;
@@ -28,6 +31,8 @@ public class FragmentAnimal extends Fragment {
     private CardsSource data;
     private AnimalsNetworkAdapter adapter;
     private RecyclerView recyclerView;
+
+
 
 
     public static FragmentAnimal newInstance() {
@@ -48,7 +53,7 @@ public class FragmentAnimal extends Fragment {
         setHasOptionsMenu(true);
         return view;
     }
-    
+
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -103,6 +108,32 @@ public class FragmentAnimal extends Fragment {
             }
         });
         recyclerView.setAdapter(adapter);
+    }
+    @Override
+    public void onCreateContextMenu(@NonNull ContextMenu menu, @NonNull View v, @Nullable ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = requireActivity().getMenuInflater();
+        inflater.inflate(R.menu.card_menu, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        int position = adapter.getMenuPosition();
+        switch(item.getItemId()) {
+            case R.id.action_update:
+                data.updateCardData(position,
+                        new CardData("Кадр " + position,
+                                data.getCardData(position).getDescription(),
+                                data.getCardData(position).getPicture(),
+                                false));
+                adapter.notifyItemChanged(position);
+                return true;
+            case R.id.action_delete:
+                data.deleteCardData(position);
+                adapter.notifyItemRemoved(position);
+
+        }
+        return super.onContextItemSelected(item);
     }
 
 }

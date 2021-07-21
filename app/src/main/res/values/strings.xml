@@ -17,11 +17,11 @@
     <string name="title3">Енот</string>
     <string name="title4">Свинка</string>
     <string name="title5">Тигр</string>
-    <string name="description1">Кот Вася</string>
+    <string name="description1">Кот Васёк</string>
     <string name="description2">Собака Шар</string>
-    <string name="description3">Енот Петя</string>
+    <string name="description3">Енот Петька</string>
     <string name="description4">Свинка Анька</string>
-    <string name="description5">Тигр Гоша</string>
+    <string name="description5">Тигр Гошан</string>
 
     <string name="add">Добавить</string>
     <string name="clear">Очистить</string>

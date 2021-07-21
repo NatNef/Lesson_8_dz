@@ -1,5 +1,6 @@
 package keyone.keytwo.lesson_8_dz.ui;
 
+import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,9 +10,10 @@ import android.widget.TextView;
 import android.widget.CheckBox;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
-
+import androidx.fragment.app.Fragment;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -25,7 +27,8 @@ public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAd
     private final static String TAG = "AnimalsNetworkAdapter";
     private CardsSource dataSource;
     private AdapterView.OnItemClickListener itemClickListener;  // Слушатель будет устанавливаться извне
-
+    private Fragment fragment;
+    private int menuPosition;
     private String[] animals;
 
     // Передаём в конструктор источник данных
@@ -33,8 +36,13 @@ public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAd
 //    public AnimalsNetworkAdapter(String[] animals) {
 //        this.animals = animals;
 //    }
-    public AnimalsNetworkAdapter(CardsSource dataSource) {
+    public AnimalsNetworkAdapter(CardsSource dataSource, Fragment fragment) {
         this.dataSource = dataSource;
+        this.fragment = fragment;
+    }
+
+    public AnimalsNetworkAdapter(CardsSource data) {
+
     }
 
 
@@ -81,6 +89,10 @@ public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAd
     public void setData(CardData cardData) {
     }
 
+    public int getMenuPosition() {
+        return menuPosition;
+    }
+
     // Интерфейс для обработки нажатий, как в ListView
     public interface OnItemClickListener {
         void onItemClick(View view, int position);
@@ -97,26 +109,53 @@ public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAd
         private TextView description;
         private AppCompatImageView image;
         private CheckBox like;
+        
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull final View itemView) {
             super(itemView);
             //   textView = (TextView) itemView;
             title = itemView.findViewById(R.id.title);
             description = itemView.findViewById(R.id.description);
             image = itemView.findViewById(R.id.imageView);
             like = itemView.findViewById(R.id.like);
+            registerContextMenu(itemView);
 
             // Обработчик нажатий на картинке
-            /*image.setOnClickListener(new View.OnClickListener() {
+//            image.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if (itemClickListener != null) {
+//                        itemClickListener.onItemClick(v, getAdapterPosition());
+//                    }
+//                }
+//            });
+
+            // Обработчик нажатий на картинке
+            image.setOnLongClickListener(new View.OnLongClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.N)
                 @Override
-                public void onClick(View v) {
-                    AdapterView.OnItemClickListener itemClickListener = null;
-                    if (itemClickListener != null) {
-                      //  itemClickListener.onItemClick(v,getAdapterPosition());
-                    }
+                public boolean onLongClick(View v) {
+                    menuPosition = getLayoutPosition();
+                    itemView.showContextMenu(10, 10);
+                    return true;
                 }
-            });*/
+            });
         }
+
+
+        private void registerContextMenu(View itemView) {
+            if (fragment != null){
+                itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View v) {
+                        menuPosition = getLayoutPosition();
+                        return false;
+                    }
+                });
+                fragment.registerForContextMenu(itemView);
+            }
+        }
+        
 
         public void setData(CardData cardData) {
             title.setText(cardData.getTitle());
@@ -125,9 +164,6 @@ public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAd
             image.setImageResource(cardData.getPicture());
         }
 
-//        public TextView getTextView() {
-//            return textView;
-//        }
     }
 }
 
