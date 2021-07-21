@@ -23,4 +23,9 @@
     <string name="description4">Свинка Анька</string>
     <string name="description5">Тигр Гоша</string>
 
+    <string name="add">Добавить</string>
+    <string name="clear">Очистить</string>
+
+    <string name="update">Изменить</string>
+    <string name="delete">Удалить</string>
 </resources>

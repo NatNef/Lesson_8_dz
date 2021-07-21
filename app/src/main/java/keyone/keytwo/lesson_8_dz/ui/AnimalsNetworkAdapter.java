@@ -71,21 +71,6 @@ public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAd
         return dataSource.size();
     }
 
-    // Этот класс хранит связь между данными и элементами View
-    // Сложные данные могут потребовать несколько View на один пункт списка
-//    public static class ViewHolder extends RecyclerView.ViewHolder {
-//
-//        private TextView textView;
-//        private OnItemClickListener itemClickListener;
-//        public  ViewHolder(View itemView) {
-//            super(itemView);
-//         //   textView = (TextView) itemView;
-//        }
-//        public TextView getTextView() {
-//            return null;
-//        }
-
-
         // Сеттер слушателя нажатий
         public void SetOnItemClickListener(OnItemClickListener itemClickListener){
             this.itemClickListener = (AdapterView.OnItemClickListener) itemClickListener;

@@ -32,7 +32,6 @@ import keyone.keytwo.lesson_8_dz.R;
         }
 
         // Механизм вытаскивания идентификаторов картинок
-        // https://stackoverflow.com/questions/5347107/creating-integer-array-of-resource-ids
         private int[] getImageArray(){
             TypedArray pictures = resources.obtainTypedArray(R.array.pictures);
             int length = pictures.length();
@@ -50,6 +49,27 @@ import keyone.keytwo.lesson_8_dz.R;
         public int size(){
             return dataSource.size();
         }
+
+        @Override
+        public void deleteCardData(int position) {
+            dataSource.remove(position);
+        }
+
+        @Override
+        public void updateCardData(int position, CardData cardData) {
+            dataSource.set(position, cardData);
+        }
+
+        @Override
+        public void addCardData(CardData cardData) {
+            dataSource.add(cardData);
+        }
+
+        @Override
+        public void clearCardData() {
+            dataSource.clear();
+        }
+
     }
 
 
