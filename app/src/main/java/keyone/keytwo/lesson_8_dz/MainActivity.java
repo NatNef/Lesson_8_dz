@@ -28,10 +28,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_main);
+
 
         setSupportActionBar(findViewById(R.id.toolbar));
+        addFragment(FragmentAnimal.newInstance());
 
     }
 

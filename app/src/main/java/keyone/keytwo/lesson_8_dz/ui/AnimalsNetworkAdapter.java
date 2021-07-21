@@ -71,16 +71,20 @@ public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAd
         return dataSource.size();
     }
 
-        // Сеттер слушателя нажатий
-        public void SetOnItemClickListener(OnItemClickListener itemClickListener){
-            this.itemClickListener = (AdapterView.OnItemClickListener) itemClickListener;
-        }
 
 
-        // Интерфейс для обработки нажатий, как в ListView
-        public interface OnItemClickListener {
-            void onItemClick(View view , int position);
-        }
+    // Сеттер слушателя нажатий
+    public void SetOnItemClickListener(OnItemClickListener itemClickListener) {
+        // this.itemClickListener = (AdapterView.OnItemClickListener) itemClickListener;
+    }
+
+    public void setData(CardData cardData) {
+    }
+
+    // Интерфейс для обработки нажатий, как в ListView
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+    }
 
 
     // Этот класс хранит связь между данными и элементами View
@@ -88,7 +92,7 @@ public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAd
     // один пункт списка
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-      //  private TextView textView;
+        //  private TextView textView;
         private TextView title;
         private TextView description;
         private AppCompatImageView image;
@@ -96,22 +100,25 @@ public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAd
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-         //   textView = (TextView) itemView;
+            //   textView = (TextView) itemView;
             title = itemView.findViewById(R.id.title);
             description = itemView.findViewById(R.id.description);
             image = itemView.findViewById(R.id.imageView);
             like = itemView.findViewById(R.id.like);
 
             // Обработчик нажатий на картинке
-            image.setOnClickListener(new View.OnClickListener() {
+            /*image.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
+                public void onClick(View v) {
                     AdapterView.OnItemClickListener itemClickListener = null;
+                    if (itemClickListener != null) {
+                      //  itemClickListener.onItemClick(v,getAdapterPosition());
+                    }
                 }
-            });
+            });*/
         }
 
-        public void setData(CardData cardData){
+        public void setData(CardData cardData) {
             title.setText(cardData.getTitle());
             description.setText(cardData.getDescription());
             like.setChecked(cardData.isLike());
