@@ -49,16 +49,15 @@ public class FragmentAnimal extends Fragment {
         // Установим адаптер
         final AnimalsNetworkAdapter adapter = new AnimalsNetworkAdapter(data);
         recyclerView.setAdapter(adapter);
-    }
-// Установим слушателя
-       adapter.SetOnItemClickListener(new AnimalsNetworkAdapter.OnItemClickListener()
 
-    {
-        @Override
-        public void onItemClick; (View) view; int position = 0; {
-        Toast.makeText(getContext(), String.format("Позиция - %d", position),
-                Toast.LENGTH_SHORT).show();
-    }
+        // Установим слушателя
+        adapter.SetOnItemClickListener(new AnimalsNetworkAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+
+            }
+        });
+        recyclerView.setAdapter(adapter);
     }
 
 }
