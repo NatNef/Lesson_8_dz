@@ -122,9 +122,6 @@ public class AnimalsNetworkAdapter extends RecyclerView.Adapter<AnimalsNetworkAd
                 @Override
                 public void onClick(View view) {
                     AdapterView.OnItemClickListener itemClickListener = null;
-                    if (itemClickListener != null) {
-                        itemClickListener.onItemClick(View view),getAdapterPosition();
-                    }
                 }
             });
         }
